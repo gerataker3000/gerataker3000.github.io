@@ -1,472 +1,1855 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <meta name="description" content="Currículum profesional de Gerardo López, desarrollador Full Stack e ingeniero en sistemas.">
+
+    <title>Gerardo López | Currículum Profesional</title>
+
+    <!-- Bulma CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-fondo: #071322;
+            --color-fondo-secundario: #0d1c2e;
+            --color-tarjeta: #10243a;
+            --color-tarjeta-clara: #f4f7fb;
+            --color-verde: #c7ff4a;
+            --color-verde-oscuro: #9ad629;
+            --color-azul: #5e9cff;
+            --color-blanco: #ffffff;
+            --color-texto: #d6e0eb;
+            --color-texto-oscuro: #182536;
+            --color-gris: #93a4b7;
+            --color-borde: rgba(255, 255, 255, 0.12);
+            --radio: 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(94, 156, 255, 0.15),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 20%,
+                    rgba(199, 255, 74, 0.08),
+                    transparent 25%
+                ),
+                var(--color-fondo);
+
+            color: var(--color-texto);
+            font-family: "Inter", sans-serif;
+            min-height: 100vh;
+        }
+
+        a {
+            transition:
+                color 0.2s ease,
+                opacity 0.2s ease;
+        }
+
+        .cv-wrapper {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 35px 20px 70px;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--color-blanco);
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .brand-symbol {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 13px;
+            background-color: var(--color-verde);
+            color: var(--color-fondo);
+            font-weight: 900;
+        }
+
+        .print-button {
+            border: none;
+            border-radius: 999px;
+            background-color: var(--color-verde);
+            color: var(--color-fondo);
+            font-weight: 800;
+            padding: 13px 22px;
+            cursor: pointer;
+            transition:
+                transform 0.2s ease,
+                background-color 0.2s ease;
+        }
+
+        .print-button:hover {
+            transform: translateY(-2px);
+            background-color: var(--color-verde-oscuro);
+            color: var(--color-fondo);
+        }
+
+        .hero-cv {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--color-borde);
+            border-radius: 32px;
+            padding: 55px;
+            margin-bottom: 28px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(16, 36, 58, 0.98),
+                    rgba(7, 19, 34, 0.98)
+                );
+        }
+
+        .hero-cv::before {
+            content: "";
+            position: absolute;
+            width: 430px;
+            height: 430px;
+            right: -170px;
+            top: -210px;
+            border-radius: 50%;
+            background-color: var(--color-verde);
+            opacity: 0.08;
+        }
+
+        .hero-cv::after {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            right: 120px;
+            bottom: -180px;
+            border-radius: 50%;
+            background-color: var(--color-azul);
+            opacity: 0.1;
+        }
+
+        .hero-cv .columns {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-photo-container {
+            position: relative;
+            width: 245px;
+            height: 245px;
+            margin: 0 auto;
+        }
+
+        .profile-photo {
+            width: 245px;
+            height: 245px;
+            border-radius: 32px;
+            object-fit: cover;
+            object-position: center;
+            border: 5px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+        }
+
+        .available-badge {
+            position: absolute;
+            right: -15px;
+            bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--color-verde);
+            color: var(--color-fondo);
+            border-radius: 999px;
+            padding: 10px 15px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .available-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background-color: var(--color-fondo);
+        }
+
+        .hero-kicker {
+            display: inline-block;
+            color: var(--color-verde);
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero-name {
+            color: var(--color-blanco);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(3rem, 6vw, 5.4rem);
+            font-weight: 700;
+            line-height: 0.93;
+            letter-spacing: -0.055em;
+            margin-bottom: 20px;
+        }
+
+        .hero-profession {
+            color: var(--color-azul);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 22px;
+        }
+
+        .hero-description {
+            color: var(--color-texto);
+            max-width: 720px;
+            font-size: 1.02rem;
+            line-height: 1.85;
+            margin-bottom: 28px;
+        }
+
+        .hero-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .hero-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 11px 16px;
+            border: 1px solid var(--color-borde);
+            border-radius: 999px;
+            color: var(--color-blanco);
+            background-color: rgba(255, 255, 255, 0.04);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .hero-link:hover {
+            color: var(--color-verde);
+            border-color: var(--color-verde);
+        }
+
+        .cv-grid {
+            display: grid;
+            grid-template-columns: 340px minmax(0, 1fr);
+            gap: 28px;
+        }
+
+        .sidebar-card,
+        .content-card {
+            border: 1px solid var(--color-borde);
+            border-radius: var(--radio);
+        }
+
+        .sidebar-card {
+            padding: 28px;
+            margin-bottom: 22px;
+            background-color: var(--color-tarjeta);
+        }
+
+        .content-card {
+            padding: 36px;
+            margin-bottom: 24px;
+            background-color: var(--color-tarjeta-clara);
+            color: var(--color-texto-oscuro);
+        }
+
+        .card-heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--color-blanco);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 22px;
+        }
+
+        .card-heading-icon {
+            width: 35px;
+            height: 35px;
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            border-radius: 11px;
+            background-color: var(--color-verde);
+            color: var(--color-fondo);
+        }
+
+        .content-heading {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            color: var(--color-texto-oscuro);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin-bottom: 26px;
+        }
+
+        .content-heading::before {
+            content: "";
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+            border-radius: 4px;
+            background-color: var(--color-verde-oscuro);
+            transform: rotate(45deg);
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 13px;
+            margin-bottom: 17px;
+            color: var(--color-texto);
+            font-size: 0.9rem;
+        }
+
+        .contact-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-row .icon {
+            color: var(--color-verde);
+            min-width: 20px;
+        }
+
+        .contact-row a {
+            color: var(--color-texto);
+            word-break: break-word;
+        }
+
+        .contact-row a:hover {
+            color: var(--color-verde);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .skill-tag {
+            display: inline-flex;
+            align-items: center;
+            min-height: 34px;
+            padding: 7px 12px;
+            border: 1px solid var(--color-borde);
+            border-radius: 999px;
+            background-color: rgba(255, 255, 255, 0.04);
+            color: var(--color-texto);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .skill-tag.highlight {
+            background-color: var(--color-verde);
+            border-color: var(--color-verde);
+            color: var(--color-fondo);
+        }
+
+        .language-item {
+            margin-bottom: 20px;
+        }
+
+        .language-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .language-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 9px;
+            font-size: 0.86rem;
+            font-weight: 700;
+        }
+
+        .language-level {
+            color: var(--color-gris);
+        }
+
+        .language-track {
+            height: 8px;
+            overflow: hidden;
+            border-radius: 999px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .language-value {
+            height: 100%;
+            border-radius: inherit;
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--color-verde),
+                    var(--color-azul)
+                );
+        }
+
+        .extra-item {
+            display: flex;
+            gap: 11px;
+            align-items: flex-start;
+            color: var(--color-texto);
+            margin-bottom: 14px;
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        .extra-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .extra-item i {
+            color: var(--color-verde);
+            margin-top: 3px;
+        }
+
+        .profile-text {
+            color: #536274;
+            font-size: 1rem;
+            line-height: 1.85;
+        }
+
+        .profile-text p:not(:last-child) {
+            margin-bottom: 18px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 32px;
+            padding-bottom: 34px;
+            border-left: 2px solid #d8e0ea;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -8px;
+            top: 4px;
+            width: 14px;
+            height: 14px;
+            border-radius: 4px;
+            background-color: var(--color-verde-oscuro);
+            transform: rotate(45deg);
+            box-shadow: 0 0 0 5px var(--color-tarjeta-clara);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: flex-start;
+            margin-bottom: 13px;
+        }
+
+        .timeline-title {
+            color: var(--color-texto-oscuro);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .timeline-company {
+            color: #3f78ce;
+            font-size: 0.94rem;
+            font-weight: 700;
+        }
+
+        .timeline-date {
+            flex-shrink: 0;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background-color: #e6edf7;
+            color: #4d5d70;
+            font-size: 0.78rem;
+            font-weight: 800;
+        }
+
+        .timeline-description {
+            color: #5c6c7e;
+            line-height: 1.75;
+        }
+
+        .timeline-description ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .timeline-description li {
+            margin-bottom: 8px;
+        }
+
+        .timeline-description li::marker {
+            color: var(--color-verde-oscuro);
+        }
+
+        .project-grid,
+        .competency-grid,
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .project-card,
+        .competency-card,
+        .course-card {
+            height: 100%;
+            border: 1px solid #dce4ee;
+            border-radius: 18px;
+            background-color: #ffffff;
+            padding: 23px;
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .project-card:hover,
+        .competency-card:hover,
+        .course-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--color-azul);
+            box-shadow: 0 15px 35px rgba(22, 42, 68, 0.1);
+        }
+
+        .project-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 39px;
+            height: 39px;
+            margin-bottom: 17px;
+            border-radius: 12px;
+            background-color: var(--color-fondo);
+            color: var(--color-verde);
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 700;
+        }
+
+        .project-title,
+        .competency-title,
+        .course-title {
+            color: var(--color-texto-oscuro);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .project-stack {
+            color: #3f78ce;
+            font-size: 0.8rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .project-description,
+        .competency-description,
+        .course-description {
+            color: #627286;
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        .competency-icon {
+            display: grid;
+            place-items: center;
+            width: 47px;
+            height: 47px;
+            margin-bottom: 16px;
+            border-radius: 14px;
+            background-color: #edf4ff;
+            color: #3676d3;
+            font-size: 1.2rem;
+        }
+
+        .course-card {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .course-icon {
+            display: grid;
+            place-items: center;
+            width: 42px;
+            height: 42px;
+            flex-shrink: 0;
+            border-radius: 12px;
+            background-color: var(--color-verde);
+            color: var(--color-fondo);
+        }
+
+        .footer-text {
+            margin-top: 35px;
+            text-align: center;
+            color: var(--color-gris);
+            font-size: 0.82rem;
+        }
+
+        @media screen and (max-width: 1023px) {
+            .cv-grid {
+                grid-template-columns: 300px minmax(0, 1fr);
+            }
+
+            .hero-cv {
+                padding: 42px;
+            }
+
+            .profile-photo-container,
+            .profile-photo {
+                width: 205px;
+                height: 205px;
+            }
+
+            .project-grid,
+            .competency-grid,
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .cv-wrapper {
+                padding: 20px 14px 50px;
+            }
+
+            .topbar {
+                align-items: flex-start;
+            }
+
+            .brand-text {
+                display: none;
+            }
+
+            .hero-cv {
+                padding: 32px 23px;
+                border-radius: 24px;
+            }
+
+            .profile-photo-container {
+                margin-bottom: 35px;
+            }
+
+            .hero-name {
+                font-size: 3.1rem;
+            }
+
+            .cv-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar-card,
+            .content-card {
+                border-radius: 20px;
+            }
+
+            .content-card {
+                padding: 27px 22px;
+            }
+
+            .timeline-header {
+                flex-direction: column;
+                gap: 9px;
+            }
+
+            .timeline-date {
+                align-self: flex-start;
+            }
+
+            .hero-links {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-link {
+                justify-content: center;
+            }
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 8mm;
+            }
+
+            body {
+                background: #ffffff;
+                color: #000000;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .cv-wrapper {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .topbar,
+            .print-button,
+            .footer-text {
+                display: none !important;
+            }
+
+            .hero-cv {
+                margin-bottom: 12px;
+                padding: 25px;
+                border-radius: 18px;
+                break-inside: avoid;
+            }
+
+            .profile-photo-container,
+            .profile-photo {
+                width: 145px;
+                height: 145px;
+            }
+
+            .hero-name {
+                font-size: 2.6rem;
+            }
+
+            .hero-profession {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+
+            .hero-description {
+                font-size: 0.78rem;
+                line-height: 1.5;
+                margin-bottom: 12px;
+            }
+
+            .hero-link {
+                font-size: 0.7rem;
+                padding: 6px 9px;
+            }
+
+            .cv-grid {
+                grid-template-columns: 31% 69%;
+                gap: 10px;
+            }
+
+            .sidebar-card {
+                padding: 15px;
+                margin-bottom: 10px;
+                border-radius: 12px;
+                break-inside: avoid;
+            }
+
+            .content-card {
+                padding: 18px;
+                margin-bottom: 10px;
+                border-radius: 12px;
+                break-inside: auto;
+            }
+
+            .card-heading,
+            .content-heading {
+                margin-bottom: 12px;
+            }
+
+            .timeline-item,
+            .project-card,
+            .competency-card,
+            .course-card {
+                break-inside: avoid;
+            }
+
+            .profile-text,
+            .timeline-description,
+            .project-description,
+            .competency-description,
+            .course-description {
+                font-size: 0.76rem;
+                line-height: 1.45;
+            }
+
+            .skill-tag {
+                min-height: auto;
+                padding: 4px 7px;
+                font-size: 0.65rem;
+            }
+
+            .project-grid,
+            .competency-grid,
+            .course-grid {
+                gap: 8px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
-                <svg width="640" height="160" viewBox="0 0 640 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M170 132.571V27.5908C170 25.5451 170.915 23.93 172.746 22.7456C174.576 21.5612 176.729 20.969 179.206 20.969H210.377C232.019 20.969 242.84 30.4441 242.84 49.3943C242.84 62.5303 238.264 71.0902 229.112 75.074C234.603 77.2275 238.748 80.2692 241.548 84.1992C244.347 88.1292 245.747 93.8627 245.747 101.4V104.791C245.747 116.743 242.84 125.437 237.026 130.875C231.211 136.312 223.351 139.031 213.445 139.031H179.206C176.514 139.031 174.307 138.385 172.584 137.093C170.861 135.801 170 134.293 170 132.571ZM190.834 120.619H209.085C219.529 120.619 224.751 114.751 224.751 103.015V100.431C224.751 94.401 223.432 90.0404 220.794 87.3486C218.156 84.6568 214.253 83.3109 209.085 83.3109H190.834V120.619ZM190.834 66.8371H208.923C213.122 66.8371 216.326 65.5989 218.533 63.1225C220.74 60.646 221.844 57.2544 221.844 52.9475C221.844 48.7483 220.686 45.4374 218.371 43.0148C216.057 40.5922 212.853 39.3809 208.762 39.3809H190.834V66.8371ZM260.283 103.015V27.4293C260.283 25.2759 261.306 23.6608 263.351 22.5841C265.397 21.5074 267.873 20.969 270.781 20.969C273.688 20.969 276.164 21.5074 278.21 22.5841C280.256 23.6608 281.279 25.2759 281.279 27.4293V103.015C281.279 115.397 287.2 121.588 299.044 121.588C310.888 121.588 316.81 115.397 316.81 103.015V27.4293C316.81 25.2759 317.833 23.6608 319.879 22.5841C321.925 21.5074 324.401 20.969 327.308 20.969C330.215 20.969 332.692 21.5074 334.738 22.5841C336.783 23.6608 337.806 25.2759 337.806 27.4293V103.015C337.806 115.72 334.28 125.061 327.227 131.036C320.175 137.012 310.781 140 299.044 140C287.308 140 277.914 137.039 270.861 131.117C263.809 125.195 260.283 115.828 260.283 103.015ZM356.703 132.409V27.4293C356.703 25.2759 357.725 23.6608 359.771 22.5841C361.817 21.5074 364.293 20.969 367.201 20.969C370.108 20.969 372.584 21.5074 374.63 22.5841C376.676 23.6608 377.699 25.2759 377.699 27.4293V120.619H417.106C419.044 120.619 420.579 121.534 421.709 123.365C422.84 125.195 423.405 127.349 423.405 129.825C423.405 132.301 422.84 134.455 421.709 136.285C420.579 138.116 419.044 139.031 417.106 139.031H365.908C363.432 139.031 361.279 138.439 359.448 137.254C357.618 136.07 356.703 134.455 356.703 132.409ZM434.872 132.409V31.467C434.872 27.9138 435.868 25.2759 437.86 23.5532C439.852 21.8304 442.355 20.969 445.37 20.969C449.354 20.969 452.423 21.6689 454.576 23.0686C456.729 24.4684 459.098 27.4832 461.682 32.1131L481.548 68.2907L501.413 32.1131C503.997 27.4832 506.393 24.4684 508.6 23.0686C510.808 21.6689 513.903 20.969 517.887 20.969C520.902 20.969 523.405 21.8304 525.397 23.5532C527.389 25.2759 528.385 27.9138 528.385 31.467V132.409C528.385 134.455 527.335 136.07 525.236 137.254C523.136 138.439 520.686 139.031 517.887 139.031C514.98 139.031 512.503 138.439 510.458 137.254C508.412 136.07 507.389 134.455 507.389 132.409V62.961L488.493 96.5545C486.985 99.354 484.616 100.754 481.386 100.754C478.264 100.754 475.949 99.354 474.441 96.5545L455.868 61.6689V132.409C455.868 134.455 454.818 136.07 452.719 137.254C450.619 138.439 448.17 139.031 445.37 139.031C442.463 139.031 439.987 138.439 437.941 137.254C435.895 136.07 434.872 134.455 434.872 132.409ZM539.529 130.31C539.529 130.094 539.637 129.556 539.852 128.694L571.023 27.1063C571.669 24.8452 573.257 23.0956 575.787 21.8573C578.318 20.6191 581.198 20 584.428 20C587.658 20 590.565 20.6191 593.149 21.8573C595.734 23.0956 597.349 24.8452 597.995 27.1063L629.166 128.694C629.381 129.556 629.489 130.094 629.489 130.31C629.489 132.678 628.035 134.724 625.128 136.447C622.221 138.17 619.26 139.031 616.245 139.031C612.261 139.031 609.892 137.631 609.139 134.832L603.001 113.351H566.016L559.879 134.832C559.125 137.631 556.756 139.031 552.773 139.031C549.65 139.031 546.662 138.197 543.809 136.528C540.956 134.859 539.529 132.786 539.529 130.31ZM570.377 96.8775H598.479L584.428 47.2948L570.377 96.8775Z"
-                        fill="black" class="bd-svg-black" />
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M0 110L10 40L50 0L100 50L70 80L110 120L50 160L0 110Z" fill="#00D1B2" />
-                </svg>
 
-            </a>
+    <div class="cv-wrapper">
 
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
+        <!-- Barra superior -->
+        <nav class="topbar">
 
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item">
-                    Home
-                </a>
+            <div class="brand">
+                <span class="brand-symbol">
+                    GL
+                </span>
 
-                <a class="navbar-item">
-                    Documentation
-                </a>
-
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                        More
-                    </a>
-
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                            About
-                        </a>
-                        <a class="navbar-item is-selected">
-                            Jobs
-                        </a>
-                        <a class="navbar-item">
-                            Contact
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item">
-                            Report an issue
-                        </a>
-                    </div>
-                </div>
+                <span class="brand-text">
+                    Currículum profesional
+                </span>
             </div>
 
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-primary">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a class="button is-light">
-                            Log in
-                        </a>
+            <button
+                type="button"
+                class="button print-button"
+                onclick="window.print()"
+            >
+                <span class="icon">
+                    <i class="fa-solid fa-print"></i>
+                </span>
+
+                <span>
+                    Imprimir CV
+                </span>
+            </button>
+
+        </nav>
+
+        <!-- Presentación -->
+        <header class="hero-cv">
+
+            <div class="columns is-vcentered is-variable is-8">
+
+                <div class="column is-4">
+
+                    <div class="profile-photo-container">
+
+                        <img
+                            class="profile-photo"
+                            src="https://i.abcnewsfe.com/a/a9f91b3e-be84-4ed4-a71b-24c8b3671a80/john-wick-ht-bb-230216_1676562305682_hpMain_1x1.jpg?w=992"
+                            alt="Fotografía profesional de Gerardo López"
+                        >
+
+                        <span class="available-badge">
+                            <span class="available-dot"></span>
+                            Disponible
+                        </span>
+
                     </div>
+
                 </div>
+
+                <div class="column is-8">
+
+                    <span class="hero-kicker">
+                        Ingeniero en sistemas
+                    </span>
+
+                    <h1 class="hero-name">
+                        Gerardo<br>
+                        López
+                    </h1>
+
+                    <p class="hero-profession">
+                        Desarrollador Full Stack y especialista en sistemas
+                    </p>
+
+                    <p class="hero-description">
+                        Profesional de tecnologías de la información con
+                        experiencia en desarrollo de aplicaciones web,
+                        administración de bases de datos, infraestructura,
+                        servicios en la nube y sistemas empresariales.
+                    </p>
+
+                    <div class="hero-links">
+
+                        <a
+                            class="hero-link"
+                            href="mailto:correo@ejemplo.com"
+                        >
+                            <i class="fa-solid fa-envelope"></i>
+                            correo@ejemplo.com
+                        </a>
+
+                        <a
+                            class="hero-link"
+                            href="https://github.com/usuario"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fa-brands fa-github"></i>
+                            GitHub
+                        </a>
+
+                        <a
+                            class="hero-link"
+                            href="https://www.linkedin.com/in/usuario"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fa-brands fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+
+                    </div>
+
+                </div>
+
             </div>
-        </div>
-    </nav>
-    <table class="table">
-        <thead>
-            <tr>
-                <th><abbr title="Position">Pos</abbr></th>
-                <th>Team</th>
-                <th><abbr title="Played">Pld</abbr></th>
-                <th><abbr title="Won">W</abbr></th>
-                <th><abbr title="Drawn">D</abbr></th>
-                <th><abbr title="Lost">L</abbr></th>
-                <th><abbr title="Goals for">GF</abbr></th>
-                <th><abbr title="Goals against">GA</abbr></th>
-                <th><abbr title="Goal difference">GD</abbr></th>
-                <th><abbr title="Points">Pts</abbr></th>
-                <th>Qualification or relegation</th>
-            </tr>
-        </thead>
-        <tfoot>
-            <tr>
-                <th><abbr title="Position">Pos</abbr></th>
-                <th>Team</th>
-                <th><abbr title="Played">Pld</abbr></th>
-                <th><abbr title="Won">W</abbr></th>
-                <th><abbr title="Drawn">D</abbr></th>
-                <th><abbr title="Lost">L</abbr></th>
-                <th><abbr title="Goals for">GF</abbr></th>
-                <th><abbr title="Goals against">GA</abbr></th>
-                <th><abbr title="Goal difference">GD</abbr></th>
-                <th><abbr title="Points">Pts</abbr></th>
-                <th>Qualification or relegation</th>
-            </tr>
-        </tfoot>
-        <tbody>
-            <tr>
-                <th>1</th>
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">Leicester
-                        City</a>
-                    <strong>(C)</strong>
-                </td>
-                <td>38</td>
-                <td>23</td>
-                <td>12</td>
-                <td>3</td>
-                <td>68</td>
-                <td>36</td>
-                <td>+32</td>
-                <td>81</td>
-                <td>
-                    Qualification for the
-                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage"
-                        title="2016–17 UEFA Champions League">Champions League group stage</a>
-                </td>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Arsenal_F.C." title="Arsenal F.C.">Arsenal</a>
-                </td>
-                <td>38</td>
-                <td>20</td>
-                <td>11</td>
-                <td>7</td>
-                <td>65</td>
-                <td>36</td>
-                <td>+29</td>
-                <td>71</td>
-                <td>
-                    Qualification for the
-                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage"
-                        title="2016–17 UEFA Champions League">Champions League group stage</a>
-                </td>
-            </tr>
-            <tr>
-                <th>3</th>
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Tottenham_Hotspur_F.C."
-                        title="Tottenham Hotspur F.C.">Tottenham Hotspur</a>
-                </td>
-                <td>38</td>
-                <td>19</td>
-                <td>13</td>
-                <td>6</td>
-                <td>69</td>
-                <td>35</td>
-                <td>+34</td>
-                <td>70</td>
-                <td>
-                    Qualification for the
-                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage"
-                        title="2016–17 UEFA Champions League">Champions League group stage</a>
-                </td>
-            </tr>
-            <tr class="is-selected">
-                <th>4</th>
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Manchester_City_F.C." title="Manchester City F.C.">Manchester
-                        City</a>
-                </td>
-                <td>38</td>
-                <td>19</td>
-                <td>9</td>
-                <td>10</td>
-                <td>71</td>
-                <td>41</td>
-                <td>+30</td>
-                <td>66</td>
-                <td>
-                    Qualification for the
-                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Play-off_round"
-                        title="2016–17 UEFA Champions League">Champions League play-off round</a>
-                </td>
-            </tr>
-            <tr>
-                <th>5</th>
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Manchester_United_F.C."
-                        title="Manchester United F.C.">Manchester United</a>
-                </td>
-                <td>38</td>
-                <td>19</td>
-                <td>9</td>
-                <td>10</td>
-                <td>49</td>
-                <td>35</td>
-                <td>+14</td>
-                <td>66</td>
-                <td>
-                    Qualification for the
-                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Group_stage"
-                        title="2016–17 UEFA Europa League">Europa League group stage</a>
-                </td>
-            </tr>
-            <tr>
-                <th>6</th>
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Southampton_F.C." title="Southampton F.C.">Southampton</a>
-                </td>
-                <td>38</td>
-                <td>18</td>
-                <td>9</td>
-                <td>11</td>
-                <td>59</td>
-                <td>41</td>
-                <td>+18</td>
-                <td>63</td>
-                <td>
-                    Qualification for the
-                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Group_stage"
-                        title="2016–17 UEFA Europa League">Europa League group stage</a>
-                </td>
-            </tr>
-            <tr>
-                <th>7</th>
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/West_Ham_United_F.C." title="West Ham United F.C.">West Ham
-                        United</a>
-                </td>
-                <td>38</td>
-                <td>16</td>
-                <td>14</td>
-                <td>8</td>
-                <td>65</td>
-                <td>51</td>
-                <td>+14</td>
-                <td>62</td>
-                <td>
-                    Qualification for the
-                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Third_qualifying_round"
-                        title="2016–17 UEFA Europa League">Europa League third qualifying round</a>
-                </td>
-            </tr>
-            <tr>
-                <th>8</th>
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Liverpool_F.C." title="Liverpool F.C.">Liverpool</a>
-                </td>
-                <td>38</td>
-                <td>16</td>
-                <td>12</td>
-                <td>10</td>
-                <td>63</td>
-                <td>50</td>
-                <td>+13</td>
-                <td>60</td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>9</th>
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Stoke_City_F.C." title="Stoke City F.C.">Stoke City</a>
-                </td>
-                <td>38</td>
-                <td>14</td>
-                <td>9</td>
-                <td>15</td>
-                <td>41</td>
-                <td>55</td>
-                <td>−14</td>
-                <td>51</td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>10</th>
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Chelsea_F.C." title="Chelsea F.C.">Chelsea</a>
-                </td>
-                <td>38</td>
-                <td>12</td>
-                <td>14</td>
-                <td>12</td>
-                <td>59</td>
-                <td>53</td>
-                <td>+6</td>
-                <td>50</td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>11</th>
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Everton_F.C." title="Everton F.C.">Everton</a>
-                </td>
-                <td>38</td>
-                <td>11</td>
-                <td>14</td>
-                <td>13</td>
-                <td>59</td>
-                <td>55</td>
-                <td>+4</td>
-                <td>47</td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>12</th>
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Swansea_City_A.F.C." title="Swansea City A.F.C.">Swansea
-                        City</a>
-                </td>
-                <td>38</td>
-                <td>12</td>
-                <td>11</td>
-                <td>15</td>
-                <td>42</td>
-                <td>52</td>
-                <td>−10</td>
-                <td>47</td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>13</th>
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Watford_F.C." title="Watford F.C.">Watford</a>
-                </td>
-                <td>38</td>
-                <td>12</td>
-                <td>9</td>
-                <td>17</td>
-                <td>40</td>
-                <td>50</td>
-                <td>−10</td>
-                <td>45</td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>14</th>
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/West_Bromwich_Albion_F.C."
-                        title="West Bromwich Albion F.C.">West Bromwich Albion</a>
-                </td>
-                <td>38</td>
-                <td>10</td>
-                <td>13</td>
-                <td>15</td>
-                <td>34</td>
-                <td>48</td>
-                <td>−14</td>
-                <td>43</td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>15</th>
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Crystal_Palace_F.C." title="Crystal Palace F.C.">Crystal
-                        Palace</a>
-                </td>
-                <td>38</td>
-                <td>11</td>
-                <td>9</td>
-                <td>18</td>
-                <td>39</td>
-                <td>51</td>
-                <td>−12</td>
-                <td>42</td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>16</th>
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/A.F.C._Bournemouth" title="A.F.C. Bournemouth">AFC
-                        Bournemouth</a>
-                </td>
-                <td>38</td>
-                <td>11</td>
-                <td>9</td>
-                <td>18</td>
-                <td>45</td>
-                <td>67</td>
-                <td>−22</td>
-                <td>42</td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>17</th>
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Sunderland_A.F.C." title="Sunderland A.F.C.">Sunderland</a>
-                </td>
-                <td>38</td>
-                <td>9</td>
-                <td>12</td>
-                <td>17</td>
-                <td>48</td>
-                <td>62</td>
-                <td>−14</td>
-                <td>39</td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>18</th>
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Newcastle_United_F.C."
-                        title="Newcastle United F.C.">Newcastle United</a>
-                    <strong>(R)</strong>
-                </td>
-                <td>38</td>
-                <td>9</td>
-                <td>10</td>
-                <td>19</td>
-                <td>44</td>
-                <td>65</td>
-                <td>−21</td>
-                <td>37</td>
-                <td>
-                    Relegation to the
-                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_Football_League_Championship"
-                        title="2016–17 Football League Championship">Football League Championship</a>
-                </td>
-            </tr>
-            <tr>
-                <th>19</th>
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Norwich_City_F.C." title="Norwich City F.C.">Norwich City</a>
-                    <strong>(R)</strong>
-                </td>
-                <td>38</td>
-                <td>9</td>
-                <td>7</td>
-                <td>22</td>
-                <td>39</td>
-                <td>67</td>
-                <td>−28</td>
-                <td>34</td>
-                <td>
-                    Relegation to the
-                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_Football_League_Championship"
-                        title="2016–17 Football League Championship">Football League Championship</a>
-                </td>
-            </tr>
-            <tr>
-                <th>20</th>
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Aston_Villa_F.C." title="Aston Villa F.C.">Aston Villa</a>
-                    <strong>(R)</strong>
-                </td>
-                <td>38</td>
-                <td>3</td>
-                <td>8</td>
-                <td>27</td>
-                <td>27</td>
-                <td>76</td>
-                <td>−49</td>
-                <td>17</td>
-                <td>
-                    Relegation to the
-                    <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_Football_League_Championship"
-                        title="2016–17 Football League Championship">Football League Championship</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+
+        </header>
+
+        <main class="cv-grid">
+
+            <!-- Columna izquierda -->
+            <aside>
+
+                <!-- Contacto -->
+                <section class="sidebar-card">
+
+                    <h2 class="card-heading">
+
+                        <span class="card-heading-icon">
+                            <i class="fa-solid fa-address-card"></i>
+                        </span>
+
+                        Contacto
+
+                    </h2>
+
+                    <div class="contact-row">
+
+                        <span class="icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </span>
+
+                        <span>
+                            +52 000 000 0000
+                        </span>
+
+                    </div>
+
+                    <div class="contact-row">
+
+                        <span class="icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </span>
+
+                        <a href="mailto:correo@ejemplo.com">
+                            correo@ejemplo.com
+                        </a>
+
+                    </div>
+
+                    <div class="contact-row">
+
+                        <span class="icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </span>
+
+                        <span>
+                            Querétaro, México
+                        </span>
+
+                    </div>
+
+                    <div class="contact-row">
+
+                        <span class="icon">
+                            <i class="fa-brands fa-github"></i>
+                        </span>
+
+                        <a
+                            href="https://github.com/usuario"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            github.com/usuario
+                        </a>
+
+                    </div>
+
+                    <div class="contact-row">
+
+                        <span class="icon">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </span>
+
+                        <a
+                            href="https://www.linkedin.com/in/usuario"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            linkedin.com/in/usuario
+                        </a>
+
+                    </div>
+
+                </section>
+
+                <!-- Tecnologías -->
+                <section class="sidebar-card">
+
+                    <h2 class="card-heading">
+
+                        <span class="card-heading-icon">
+                            <i class="fa-solid fa-code"></i>
+                        </span>
+
+                        Tecnologías
+
+                    </h2>
+
+                    <div class="skill-tags">
+
+                        <span class="skill-tag highlight">
+                            PHP
+                        </span>
+
+                        <span class="skill-tag highlight">
+                            Laravel
+                        </span>
+
+                        <span class="skill-tag highlight">
+                            Vue.js
+                        </span>
+
+                        <span class="skill-tag">
+                            React
+                        </span>
+
+                        <span class="skill-tag">
+                            Angular
+                        </span>
+
+                        <span class="skill-tag">
+                            JavaScript
+                        </span>
+
+                        <span class="skill-tag">
+                            TypeScript
+                        </span>
+
+                        <span class="skill-tag">
+                            Node.js
+                        </span>
+
+                        <span class="skill-tag">
+                            Bulma
+                        </span>
+
+                        <span class="skill-tag">
+                            Tailwind CSS
+                        </span>
+
+                        <span class="skill-tag">
+                            HTML5
+                        </span>
+
+                        <span class="skill-tag">
+                            CSS3
+                        </span>
+
+                        <span class="skill-tag">
+                            PostgreSQL
+                        </span>
+
+                        <span class="skill-tag">
+                            MySQL
+                        </span>
+
+                        <span class="skill-tag">
+                            SQL Server
+                        </span>
+
+                        <span class="skill-tag">
+                            MongoDB
+                        </span>
+
+                        <span class="skill-tag">
+                            REST API
+                        </span>
+
+                        <span class="skill-tag">
+                            Git
+                        </span>
+
+                        <span class="skill-tag">
+                            GitHub
+                        </span>
+
+                        <span class="skill-tag">
+                            Docker
+                        </span>
+
+                        <span class="skill-tag">
+                            Linux
+                        </span>
+
+                        <span class="skill-tag highlight">
+                            AWS
+                        </span>
+
+                    </div>
+
+                </section>
+
+                <!-- Sistemas empresariales -->
+                <section class="sidebar-card">
+
+                    <h2 class="card-heading">
+
+                        <span class="card-heading-icon">
+                            <i class="fa-solid fa-building"></i>
+                        </span>
+
+                        Sistemas empresariales
+
+                    </h2>
+
+                    <div class="skill-tags">
+
+                        <span class="skill-tag highlight">
+                            SAP
+                        </span>
+
+                        <span class="skill-tag highlight">
+                            CONTPAQi
+                        </span>
+
+                        <span class="skill-tag highlight">
+                            SICAR
+                        </span>
+
+                        <span class="skill-tag">
+                            Power BI
+                        </span>
+
+                        <span class="skill-tag">
+                            Excel avanzado
+                        </span>
+
+                        <span class="skill-tag">
+                            Microsoft 365
+                        </span>
+
+                        <span class="skill-tag">
+                            Jira
+                        </span>
+
+                        <span class="skill-tag">
+                            Trello
+                        </span>
+
+                        <span class="skill-tag">
+                            Postman
+                        </span>
+
+                    </div>
+
+                </section>
+
+                <!-- Idiomas -->
+                <section class="sidebar-card">
+
+                    <h2 class="card-heading">
+
+                        <span class="card-heading-icon">
+                            <i class="fa-solid fa-language"></i>
+                        </span>
+
+                        Idiomas
+
+                    </h2>
+
+                    <div class="language-item">
+
+                        <div class="language-header">
+
+                            <span>
+                                Español
+                            </span>
+
+                            <span class="language-level">
+                                Nativo
+                            </span>
+
+                        </div>
+
+                        <div class="language-track">
+
+                            <div
+                                class="language-value"
+                                style="width: 100%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="language-item">
+
+                        <div class="language-header">
+
+                            <span>
+                                Inglés
+                            </span>
+
+                            <span class="language-level">
+                                Intermedio
+                            </span>
+
+                        </div>
+
+                        <div class="language-track">
+
+                            <div
+                                class="language-value"
+                                style="width: 65%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Información adicional -->
+                <section class="sidebar-card">
+
+                    <h2 class="card-heading">
+
+                        <span class="card-heading-icon">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </span>
+
+                        Información adicional
+
+                    </h2>
+
+                    <div class="extra-item">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Disponibilidad inmediata
+                        </span>
+
+                    </div>
+
+                    <div class="extra-item">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Trabajo presencial, híbrido o remoto
+                        </span>
+
+                    </div>
+
+                    <div class="extra-item">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Administración de servidores
+                        </span>
+
+                    </div>
+
+                    <div class="extra-item">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Disponibilidad para viajar
+                        </span>
+
+                    </div>
+
+                </section>
+
+            </aside>
+
+            <!-- Columna derecha -->
+            <div>
+
+                <!-- Perfil profesional -->
+                <section class="content-card">
+
+                    <h2 class="content-heading">
+                        Perfil profesional
+                    </h2>
+
+                    <div class="profile-text">
+
+                        <p>
+                            Ingeniero en sistemas con experiencia en análisis,
+                            desarrollo, implementación y mantenimiento de
+                            soluciones tecnológicas. Especializado en sistemas
+                            web con PHP, Laravel, JavaScript, Vue.js, React,
+                            Angular y bases de datos relacionales.
+                        </p>
+
+                        <p>
+                            Experiencia en servicios en la nube con AWS,
+                            integración de APIs REST, administración de
+                            servidores Linux, control de versiones con Git y
+                            GitHub, generación de documentos digitales y
+                            automatización de procesos.
+                        </p>
+
+                        <p>
+                            Conocimientos en sistemas empresariales y
+                            administrativos como SAP, CONTPAQi, SICAR,
+                            Microsoft 365, Excel avanzado y Power BI.
+                        </p>
+
+                    </div>
+
+                </section>
+
+                <!-- Experiencia -->
+                <section class="content-card">
+
+                    <h2 class="content-heading">
+                        Experiencia profesional
+                    </h2>
+
+                    <article class="timeline-item">
+
+                        <div class="timeline-header">
+
+                            <div>
+
+                                <h3 class="timeline-title">
+                                    Desarrollador Full Stack
+                                </h3>
+
+                                <p class="timeline-company">
+                                    Nombre de la empresa o institución
+                                </p>
+
+                            </div>
+
+                            <span class="timeline-date">
+                                2024 - Actualidad
+                            </span>
+
+                        </div>
+
+                        <div class="timeline-description">
+
+                            <ul>
+                                <li>
+                                    Desarrollo y mantenimiento de sistemas web
+                                    con Laravel, Vue.js, React y Bulma.
+                                </li>
+
+                                <li>
+                                    Diseño y optimización de bases de datos
+                                    PostgreSQL, MySQL y SQL Server.
+                                </li>
+
+                                <li>
+                                    Creación e integración de APIs REST y
+                                    servicios web.
+                                </li>
+
+                                <li>
+                                    Implementación de módulos administrativos,
+                                    escolares, financieros y empresariales.
+                                </li>
+
+                                <li>
+                                    Despliegue de servicios y aplicaciones en AWS.
+                                </li>
+
+                                <li>
+                                    Generación de documentos PDF, códigos QR,
+                                    reportes y comprobantes digitales.
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </article>
+
+                    <article class="timeline-item">
+
+                        <div class="timeline-header">
+
+                            <div>
+
+                                <h3 class="timeline-title">
+                                    Administrador de sistemas y soporte técnico
+                                </h3>
+
+                                <p class="timeline-company">
+                                    Nombre de la empresa o institución
+                                </p>
+
+                            </div>
+
+                            <span class="timeline-date">
+                                2022 - 2023
+                            </span>
+
+                        </div>
+
+                        <div class="timeline-description">
+
+                            <ul>
+                                <li>
+                                    Instalación y configuración de sistemas
+                                    empresariales.
+                                </li>
+
+                                <li>
+                                    Administración y soporte de SAP, CONTPAQi y
+                                    SICAR.
+                                </li>
+
+                                <li>
+                                    Configuración de equipos, impresoras, redes
+                                    y servidores.
+                                </li>
+
+                                <li>
+                                    Respaldos y recuperación de bases de datos.
+                                </li>
+
+                                <li>
+                                    Atención y seguimiento de incidencias
+                                    técnicas.
+                                </li>
+
+                                <li>
+                                    Elaboración de manuales y capacitación a
+                                    usuarios.
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </article>
+
+                </section>
+
+                <!-- Formación académica -->
+                <section class="content-card">
+
+                    <h2 class="content-heading">
+                        Formación académica
+                    </h2>
+
+                    <article class="timeline-item">
+
+                        <div class="timeline-header">
+
+                            <div>
+
+                                <h3 class="timeline-title">
+                                    Ingeniería en Sistemas Computacionales
+                                </h3>
+
+                                <p class="timeline-company">
+                                    Nombre de la universidad o tecnológico
+                                </p>
+
+                            </div>
+
+                            <span class="timeline-date">
+                                2018 - 2023
+                            </span>
+
+                        </div>
+
+                        <div class="timeline-description">
+
+                            Formación en desarrollo de software, bases de datos,
+                            redes, sistemas operativos, seguridad informática,
+                            ingeniería de software, servicios web y
+                            administración de proyectos tecnológicos.
+
+                        </div>
+
+                    </article>
+
+                </section>
+
+                <!-- Proyectos -->
+                <section class="content-card">
+
+                    <h2 class="content-heading">
+                        Proyectos destacados
+                    </h2>
+
+                    <div class="project-grid">
+
+                        <article class="project-card">
+
+                            <span class="project-number">
+                                01
+                            </span>
+
+                            <h3 class="project-title">
+                                Sistema administrativo empresarial
+                            </h3>
+
+                            <p class="project-stack">
+                                Laravel · Vue.js · PostgreSQL · AWS
+                            </p>
+
+                            <p class="project-description">
+                                Desarrollo de módulos para usuarios,
+                                inventarios, movimientos, documentos, reportes
+                                y procesos administrativos.
+                            </p>
+
+                        </article>
+
+                        <article class="project-card">
+
+                            <span class="project-number">
+                                02
+                            </span>
+
+                            <h3 class="project-title">
+                                Plataforma de documentos digitales
+                            </h3>
+
+                            <p class="project-stack">
+                                Laravel · React · API REST · PostgreSQL
+                            </p>
+
+                            <p class="project-description">
+                                Formularios administrativos, códigos QR,
+                                generación de PDF, validación por token y
+                                almacenamiento seguro de archivos.
+                            </p>
+
+                        </article>
+
+                        <article class="project-card">
+
+                            <span class="project-number">
+                                03
+                            </span>
+
+                            <h3 class="project-title">
+                                Integración de sistemas empresariales
+                            </h3>
+
+                            <p class="project-stack">
+                                SAP · CONTPAQi · SICAR · Power BI
+                            </p>
+
+                            <p class="project-description">
+                                Procesamiento de información comercial,
+                                contable y administrativa para automatizar
+                                reportes y análisis de datos.
+                            </p>
+
+                        </article>
+
+                        <article class="project-card">
+
+                            <span class="project-number">
+                                04
+                            </span>
+
+                            <h3 class="project-title">
+                                Infraestructura y servicios en la nube
+                            </h3>
+
+                            <p class="project-stack">
+                                AWS · Linux · Docker · GitHub
+                            </p>
+
+                            <p class="project-description">
+                                Configuración de ambientes, despliegue de
+                                aplicaciones, respaldos y administración de
+                                servicios web.
+                            </p>
+
+                        </article>
+
+                    </div>
+
+                </section>
+
+                <!-- Competencias -->
+                <section class="content-card">
+
+                    <h2 class="content-heading">
+                        Competencias técnicas
+                    </h2>
+
+                    <div class="competency-grid">
+
+                        <article class="competency-card">
+
+                            <span class="competency-icon">
+                                <i class="fa-solid fa-code"></i>
+                            </span>
+
+                            <h3 class="competency-title">
+                                Desarrollo web
+                            </h3>
+
+                            <p class="competency-description">
+                                Laravel, Vue.js, React, Angular, JavaScript,
+                                TypeScript, Bulma, Tailwind CSS, HTML y CSS.
+                            </p>
+
+                        </article>
+
+                        <article class="competency-card">
+
+                            <span class="competency-icon">
+                                <i class="fa-solid fa-database"></i>
+                            </span>
+
+                            <h3 class="competency-title">
+                                Bases de datos
+                            </h3>
+
+                            <p class="competency-description">
+                                PostgreSQL, MySQL, SQL Server, MongoDB,
+                                respaldos, migraciones y optimización de
+                                consultas.
+                            </p>
+
+                        </article>
+
+                        <article class="competency-card">
+
+                            <span class="competency-icon">
+                                <i class="fa-solid fa-cloud"></i>
+                            </span>
+
+                            <h3 class="competency-title">
+                                Nube e infraestructura
+                            </h3>
+
+                            <p class="competency-description">
+                                AWS, Linux, Docker, servidores web,
+                                almacenamiento y despliegue de aplicaciones.
+                            </p>
+
+                        </article>
+
+                        <article class="competency-card">
+
+                            <span class="competency-icon">
+                                <i class="fa-solid fa-building"></i>
+                            </span>
+
+                            <h3 class="competency-title">
+                                Sistemas empresariales
+                            </h3>
+
+                            <p class="competency-description">
+                                SAP, CONTPAQi, SICAR, Microsoft 365, Excel
+                                avanzado, Power BI y herramientas de soporte.
+                            </p>
+
+                        </article>
+
+                    </div>
+
+                </section>
+
+                <!-- Cursos -->
+                <section class="content-card">
+
+                    <h2 class="content-heading">
+                        Cursos y certificaciones
+                    </h2>
+
+                    <div class="course-grid">
+
+                        <article class="course-card">
+
+                            <span class="course-icon">
+                                <i class="fa-solid fa-code"></i>
+                            </span>
+
+                            <div>
+
+                                <h3 class="course-title">
+                                    Desarrollo web con Laravel
+                                </h3>
+
+                                <p class="course-description">
+                                    Institución o plataforma, 2025
+                                </p>
+
+                            </div>
+
+                        </article>
+
+                        <article class="course-card">
+
+                            <span class="course-icon">
+                                <i class="fa-brands fa-vuejs"></i>
+                            </span>
+
+                            <div>
+
+                                <h3 class="course-title">
+                                    Desarrollo Frontend con Vue y React
+                                </h3>
+
+                                <p class="course-description">
+                                    Institución o plataforma, 2025
+                                </p>
+
+                            </div>
+
+                        </article>
+
+                        <article class="course-card">
+
+                            <span class="course-icon">
+                                <i class="fa-brands fa-aws"></i>
+                            </span>
+
+                            <div>
+
+                                <h3 class="course-title">
+                                    Servicios en la nube con AWS
+                                </h3>
+
+                                <p class="course-description">
+                                    Institución o plataforma, 2025
+                                </p>
+
+                            </div>
+
+                        </article>
+
+                        <article class="course-card">
+
+                            <span class="course-icon">
+                                <i class="fa-solid fa-database"></i>
+                            </span>
+
+                            <div>
+
+                                <h3 class="course-title">
+                                    Administración de PostgreSQL
+                                </h3>
+
+                                <p class="course-description">
+                                    Institución o plataforma, 2024
+                                </p>
+
+                            </div>
+
+                        </article>
+
+                        <article class="course-card">
+
+                            <span class="course-icon">
+                                <i class="fa-brands fa-git-alt"></i>
+                            </span>
+
+                            <div>
+
+                                <h3 class="course-title">
+                                    Git, GitHub y Docker
+                                </h3>
+
+                                <p class="course-description">
+                                    Institución o plataforma, 2024
+                                </p>
+
+                            </div>
+
+                        </article>
+
+                        <article class="course-card">
+
+                            <span class="course-icon">
+                                <i class="fa-solid fa-building"></i>
+                            </span>
+
+                            <div>
+
+                                <h3 class="course-title">
+                                    SAP, CONTPAQi y sistemas empresariales
+                                </h3>
+
+                                <p class="course-description">
+                                    Institución o plataforma, 2024
+                                </p>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </main>
+
+        <footer class="footer-text">
+            Currículum desarrollado con HTML, CSS y Bulma
+        </footer>
+
+    </div>
 
 </body>
-
 </html>
